@@ -1,64 +1,200 @@
 <!doctype html>
-<html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <title>Dev Blogs</title>
-</head>
+    <meta
+      name="description"
+      content="Kumpulan artikel programming dan teknologi untuk developer."
+    />
 
-<body>
+    <title>Dev Blogs</title>
 
-  <p>
-    <a href="index.html">IMDb Top 3</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="blog.html">Dev Blogs</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="form.html">Form Pendaftaran</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="cv.html">Curriculum Vitae</a>
-  </p>
-  <hr>
+    <style>
+      .blog-table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+      }
 
-  <h3>Programming</h3>
-  <p>The magic behind computers.</p>
-  <hr>
+      .blog-table td {
+        padding: 8px;
+        vertical-align: top;
+      }
 
-  <table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-      <td width="40" valign="top">
-        <img src="img/profile_icons.png" width="32" height="32" alt="aimodels-fyi avatar">
-      </td>
-      <td valign="top">
-        <p><b>aimodels-fyi</b><br /><span>Jun 1</span></p>
-        <h3><a href="blog-detail.html">A beginner's guide to the Ltx-Video-0.9.7 model by Lightricks on Replicate</a>
-        </h3>
-        <p><span>#coding</span>&nbsp;&nbsp;<span>#ai</span>&nbsp;&nbsp;<span>#machinelearning</span>&nbsp;&nbsp;<span>#programming</span></p>
-      </td>
-    </tr>
-  </table>
-  <table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-      <td width="40" valign="top">
-        <img src="img/profile_icons.png" width="32" height="32" alt="Ali nazari avatar">
-      </td>
-      <td valign="top">
-        <p><b>Ali nazari</b><br /><span>May 31</span></p>
-        <h3><a href="blog-detail.html">Securing Redis with ACLs and Integrating Redis Insight in Docker</a></h3>
-        <p><span>#docker</span>&nbsp;&nbsp;<span>#webdev</span>&nbsp;&nbsp;<span>#programming</span>&nbsp;&nbsp;<span>#devops</span></p>
-      </td>
-    </tr>
-  </table>
-  <table border="1" cellpadding="5" cellspacing="0">
-    <tr>
-      <td width="40" valign="top">
-        <img src="img/profile_icons.png" width="32" height="32" alt="Vishnu Satheesh avatar">
-      </td>
-      <td valign="top">
-        <p><b>Vishnu Satheesh</b><br /><span>May 31</span></p>
-        <h3><a href="blog-detail.html">How to Deploy a Web Application Using Docker and NGINX on Your Own Server</a>
-        </h3>
-        <p><span>#webdev</span>&nbsp;&nbsp;<span>#devops</span>&nbsp;&nbsp;<span>#docker</span>&nbsp;&nbsp;<span>#programming</span></p>
-      </td>
-    </tr>
-  </table>
+      .blog-avatar {
+        width: 32px;
+      }
 
-</body>
+      .blog-avatar svg {
+        display: block;
+      }
+    </style>
+  </head>
 
+  <body>
+    <nav>
+      <p>
+        <a href="index.html">IMDb Movies</a> |
+        <a href="blog.html">Dev Blogs</a> |
+        <a href="form.html">Form Pendaftaran</a> |
+        <a href="cv.html">Curriculum Vitae</a>
+      </p>
+    </nav>
+
+    <hr />
+
+    <main>
+      <h1>Programming</h1>
+
+      <p>The magic behind computers.</p>
+
+      <hr />
+
+      <table class="blog-table">
+        <tbody>
+          <tr>
+            <td class="blog-avatar">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Foto profil aimodels-fyi"
+              >
+                <circle cx="16" cy="16" r="16" fill="#e0e0e0" />
+                <text
+                  x="16"
+                  y="20"
+                  text-anchor="middle"
+                  font-family="Arial, sans-serif"
+                  font-size="9"
+                  fill="#555"
+                >
+                  AI
+                </text>
+              </svg>
+            </td>
+
+            <td>
+              <p>
+                <b>aimodels-fyi</b><br />
+                <span>Jun 1</span>
+              </p>
+
+              <a href="blog-detail.html">
+                <h2>
+                  A beginner's guide to the Ltx-Video-0.9.7 model by Lightricks
+                  on Replicate
+                </h2>
+              </a>
+
+              <p>
+                <span>#coding</span>&nbsp;
+                <span>#ai</span>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="blog-table">
+        <tbody>
+          <tr>
+            <td class="blog-avatar">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Foto profil Ali Nazari"
+              >
+                <circle cx="16" cy="16" r="16" fill="#e0e0e0" />
+                <text
+                  x="16"
+                  y="20"
+                  text-anchor="middle"
+                  font-family="Arial, sans-serif"
+                  font-size="9"
+                  fill="#555"
+                >
+                  AN
+                </text>
+              </svg>
+            </td>
+
+            <td>
+              <p>
+                <b>Ali nazari</b><br />
+                <span>May 31</span>
+              </p>
+
+              <a href="blog-detail.html">
+                <h2>
+                  Securing Redis with ACLs and Integrating Redis Insight in
+                  Docker
+                </h2>
+              </a>
+
+              <p>
+                <span>#docker</span>&nbsp;
+                <span>#webdev</span>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="blog-table">
+        <tbody>
+          <tr>
+            <td class="blog-avatar">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Foto profil Vishnu Satheesh"
+              >
+                <circle cx="16" cy="16" r="16" fill="#e0e0e0" />
+                <text
+                  x="16"
+                  y="20"
+                  text-anchor="middle"
+                  font-family="Arial, sans-serif"
+                  font-size="9"
+                  fill="#555"
+                >
+                  VS
+                </text>
+              </svg>
+            </td>
+
+            <td>
+              <p>
+                <b>Vishnu Satheesh</b><br />
+                <span>May 31</span>
+              </p>
+
+              <a href="blog-detail.html">
+                <h2>
+                  How to Deploy a Web Application Using Docker and NGINX on
+                  Your Own Server
+                </h2>
+              </a>
+
+              <p>
+                <span>#webdev</span>&nbsp;
+                <span>#devops</span>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
 </html>

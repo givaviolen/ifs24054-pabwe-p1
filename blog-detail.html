@@ -1,147 +1,180 @@
 <!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<html>
+    <meta
+      name="description"
+      content="Panduan deployment web application menggunakan Docker dan NGINX pada server sendiri."
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <title>Blog Detail</title>
-</head>
+    <title>Detail Blog</title>
+    
 
-<body>
+    <style>
+      .cover-image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
 
-    <!-- Navigasi -->
-    <p>
-        <a href="index.html">IMDb Top 3</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="dev.html">Dev Blogs</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="form.html">Form Pendaftaran</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+      .info-table,
+      .comment-table {
+        border-collapse: collapse;
+      }
+
+      .info-table td {
+        padding: 8px;
+        vertical-align: middle;
+      }
+
+      .comment-table td {
+        padding: 8px;
+        vertical-align: top;
+      }
+
+      .profile-image {
+        display: block;
+      }
+
+      .comment-box {
+        resize: vertical;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <p>
+        <a href="index.html">IMDb Movies</a> |
+        <a href="blog.html">Dev Blogs</a> |
+        <a href="form.html">Form Pendaftaran</a> |
         <a href="cv.html">Curriculum Vitae</a>
-    </p>
+      </p>
+    </nav>
 
-    <hr>
+    <hr />
 
-    <!-- Cover Blog -->
-    <img
+    <main>
+      <img
+        class="cover-image"
         src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fk8sq4oiy0stnozjd1xgs.png"
-        width="100%"
-        height="400"
-        alt="Docker and NGINX cover">
+        width="1000"
+        height="420"
+        alt="Cover artikel tentang deployment web menggunakan Docker dan NGINX"
+        fetchpriority="high"
+        decoding="async"
+        referrerpolicy="no-referrer"
+      />
 
-    <!-- Informasi Author -->
-    <table border="0" cellpadding="5" cellspacing="0">
-        <tr>
-
-            <td width="40">
-                <img
-                    src="img/profile_icons.png"
-                    width="32"
-                    height="32"
-                    alt="Vishnu Satheesh">
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <td>
+              <img
+                class="profile-image"
+                src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2216%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2220%22%20font-family%3D%22Arial%22%20font-size%3D%229%22%20fill%3D%22%23555%22%20text-anchor%3D%22middle%22%3EVS%3C%2Ftext%3E%3C%2Fsvg%3E"
+                width="32"
+                height="32"
+                alt="Foto profil Vishnu Satheesh"
+                decoding="async"
+              />
             </td>
 
             <td>
-                <span><b>Vishnu Satheesh</b></span>
-                <br>
-                <span>Posted on May 31</span>
+              <span><b>Vishnu Satheesh</b></span><br />
+              <span>Posted on May 31</span>
             </td>
+          </tr>
+        </tbody>
+      </table>
 
-        </tr>
-    </table>
+      <h1>
+        How to Deploy a Web Application Using Docker and NGINX on Your Own
+        Server
+      </h1>
 
-    <!-- Judul Blog -->
-    <h1>
-        How to Deploy a Web Application Using Docker and NGINX on Your Own Server
-    </h1>
+      <p>#webdev &nbsp; #devops</p>
 
-    <!-- Hashtag -->
-    <p>
-        <span>#webdev</span>&nbsp;&nbsp;
-        <span>#devops</span>&nbsp;&nbsp;
-        <span>#docker</span>&nbsp;&nbsp;
-        <span>#programming</span>
-    </p>
+      <hr />
 
-    <hr>
-
-    <!-- Isi Blog -->
-
-    <p>
+      <p>
         Deploying a web application doesn't need to be a complicated process.
-        With Docker, NGINX, and your own server, you can get your app live in no time.
-    </p>
+        With Docker, NGINX, and your own server, you can get your app live in
+        no time.<br />
+        In this blog, I'll show you step by step how to serve your app with a
+        domain, route traffic with NGINX, and run it all inside a Docker
+        container. This guide is specifically tailored for a Linux-based
+        server.
+      </p>
 
-    <p>
-        In this blog, I'll show you step by step how to serve your app with a domain,
-        route traffic with NGINX, and run it all inside a Docker container.
-        This guide is specifically tailored for a Linux-based server.
-    </p>
+      <h2>Step 1: Setup Docker</h2>
 
-    <h3>Step 1 : Setup docker</h3>
-
-    <p>
+      <p>
         First, let's set up Docker. I'm using a simple React app as an example,
-        but feel free to use any application or codebase of your choice.
-        Create a Dockerfile in your project directory to define how your app should
-        be containerized.
-    </p>
-
-    <p>
+        but feel free to use any application or codebase of your choice. Create
+        a Dockerfile in your project directory to define how your app should be
+        containerized.<br />
         Dockerfile:
-    </p>
+      </p>
 
-    <pre>
-FROM node:20-alpine
+      <pre><code>FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY .
-CMD [ "npm", "start" ]
-    </pre>
+COPY . .
+CMD [ "npm", "start" ]</code></pre>
 
-    <h3>Step 2 : Build and Run the Docker Container (on your server)</h3>
+      <h2>Step 2: Build and Run the Docker Container (on your server)</h2>
 
-    <p>
-        Once you've created your Dockerfile, the next step is to build your Docker
-        image and run it to make sure everything is working as expected.
-    </p>
+      <p>
+        Once you've created your Dockerfile, the next step is to build your
+        Docker image and run it to make sure everything is working as expected.
+      </p>
 
-    <h3>Conclusion</h3>
+      <h2>Conclusion</h2>
 
-    <p>
-        Deploying your web application using Docker and NGINX on your own server
-        might sound intimidating at first, but once you break it down, it's quite manageable.
-    </p>
+      <p>
+        Deploying your web application using Docker and NGINX on your own
+        server might sound intimidating at first, but once you break it down,
+        it's quite manageable.<br />
+        By containerizing your app, setting up NGINX as a reverse proxy, and
+        linking everything together on your VPS, you gain full control over
+        your deployment process.
+      </p>
 
-    <p>
-        By containerizing your app, setting up NGINX as a reverse proxy, and linking
-        everything together on your VPS, you gain full control over your deployment process.
-    </p>
+      <hr />
 
-    <hr>
+      <h2>Top comments (0)</h2>
 
-    <!-- Komentar -->
-    <h3>Top comments (0)</h3>
-
-    <table border="0" cellpadding="5" cellspacing="0">
-        <tr>
-
-            <td width="40" valign="top">
-                <img
-                    src="img/profile_icons.png"
-                    width="32"
-                    height="32"
-                    alt="Your profile">
+      <table class="comment-table">
+        <tbody>
+          <tr>
+            <td>
+              <img
+                class="profile-image"
+                src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2216%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2220%22%20font-family%3D%22Arial%22%20font-size%3D%229%22%20fill%3D%22%23555%22%20text-anchor%3D%22middle%22%3EUser%3C%2Ftext%3E%3C%2Fsvg%3E"
+                width="32"
+                height="32"
+                alt="Foto profil pengguna komentar"
+                decoding="async"
+              />
             </td>
 
-            <td valign="top">
-                <textarea
-                    rows="3"
-                    cols="60"
-                    placeholder="Add to the discussion"></textarea>
+            <td>
+              <textarea
+                class="comment-box"
+                rows="3"
+                cols="40"
+                placeholder="Add to the discussion"
+                aria-label="Kolom komentar"
+              ></textarea>
             </td>
-
-        </tr>
-    </table>
-
-</body>
-
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
 </html>
